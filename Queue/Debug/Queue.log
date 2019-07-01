@@ -1,0 +1,18 @@
+﻿  main.cpp
+d:\forgithub\queue\queue.cpp(12): warning C4018: '<': signed/unsigned mismatch
+  d:\forgithub\queue\queue.cpp(10): note: while compiling class template member function 'Queue<int>::Queue(const int,const T &)'
+          with
+          [
+              T=int
+          ]
+  d:\forgithub\queue\main.cpp(34): note: see reference to function template instantiation 'Queue<int>::Queue(const int,const T &)' being compiled
+          with
+          [
+              T=int
+          ]
+  d:\forgithub\queue\main.cpp(8): note: see reference to class template instantiation 'Queue<int>' being compiled
+  Queue.cpp
+  Generating Code...
+d:\forgithub\queue\queue.cpp(191): warning C4715: 'Queue<char>::peek': not all control paths return a value
+d:\forgithub\queue\queue.cpp(191): warning C4715: 'Queue<int>::peek': not all control paths return a value
+  Queue.vcxproj -> D:\forGithub\Queue\Debug\Queue.exe

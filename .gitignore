@@ -1,5 +1,5 @@
-# Object file
-*.o
+# exclude Debug folder
+/Debug/*
 
-# Ada Library Information
-*.ali
+# exclude all .user files
+*.user
