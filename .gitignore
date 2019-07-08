@@ -3,3 +3,4 @@
 
 # exclude all .user files
 *.user
+BST/Debug/
