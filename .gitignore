@@ -4,3 +4,5 @@
 # exclude all .user files
 *.user
 BST/Debug/
+
+\(another\)RowAndColumn_to_0/Debug/
