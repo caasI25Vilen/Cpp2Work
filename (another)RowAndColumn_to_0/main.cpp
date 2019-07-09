@@ -6,33 +6,25 @@
 
 void RowAndColumn(int M[m][n])
 {
-	std::stack<int> s;
+	std::stack<std::pair<int, int>> s;
 	
 	for (int i = 0; i < m; ++i)
 		for (int j = 0; j < n; ++j)
-		{
 			if (!M[i][j])
-			{
-				s.push(i);
-				s.push(j);
-			}
-		}
-
-	int I, J;
+				s.push(std::make_pair(i, j));
+		
+	std::pair<int, int> P;
 
 	while (!s.empty())
 	{
-		J = s.top();
-		s.pop();
-		I = s.top();
+		P = s.top();
 		s.pop();
 
-		for (int i = 0; i < m; ++i)
-			M[i][J] = 0;
 		for (int j = 0; j < n; ++j)
-			M[I][j] = 0;
+			M[P.first][j] = 0;
+		for (int i = 0; i < m; ++i)
+			M[i][P.second] = 0;
 	}
-		
 }
 
 void Display(int M[m][n])
@@ -48,7 +40,8 @@ void Display(int M[m][n])
 
 int main()
 {
-	int Matrix[m][n] = 	{	{1,  4,  6,  8,  2,  1,  9},
+	int Matrix[m][n] = 	{	
+							{1,  4,  6,  8,  2,  1,  9},
 							{5,  5,  0,  3,  6,  7,  8},
 							{6,  1,  1,  1,  6,  3,  1},
 							{7,  8,  4,  9,  9,  0,  7},
