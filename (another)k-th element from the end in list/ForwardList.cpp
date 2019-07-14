@@ -2,7 +2,7 @@
 
 template<typename T>
 ForwardList<T>::ForwardList()
-	: head_(nullptr), tmp_(nullptr), tail_(nullptr) {}
+	: head_(nullptr)/*, tmp_(nullptr), tail_(nullptr)*/ {}
 
 template<typename T>
 ForwardList<T>::ForwardList(const ForwardList<T>& other)

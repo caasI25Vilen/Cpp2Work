@@ -4,6 +4,8 @@
 template<typename T>
 class ForwardList
 {
+	struct Node;
+	
 public:
 	ForwardList();
 	ForwardList(const ForwardList<T>& other);
@@ -13,9 +15,9 @@ public:
 	void remove(const T& data);
 	bool find(const T& data) const;
 	void display() const;
-	auto& get_head() const { return getHead(); }
-	auto& get_next() const { return getNext(); }
-	T& get_data() const { return getData(); }
+	std::shared_ptr<Node> get_head() const { return head_; }
+	std::shared_ptr<Node> get_next() const { return Node::next_; }
+	T get_data() const { return Node::data_; }
 
 private:
 	struct Node
@@ -23,14 +25,10 @@ private:
 		T data_;
 		std::shared_ptr<Node> next_;
 	};
-
-	std::shared_ptr<Node> head_;
 	std::shared_ptr<Node> tmp_;
 	std::shared_ptr<Node> tail_;
+	std::shared_ptr<Node> head_;
 
-	std::shared_ptr<Node>& getHead() const { return head_; }
-	std::shared_ptr<Node>& getNext() const { return Node::next_; }
-	T& getData() const { return Node::data_; }
 
 
 };
