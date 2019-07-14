@@ -52,7 +52,7 @@ template<typename T>
 void ForwardList<T>::remove(const T & data)
 {
 	tmp_ = head_;
-	Node* prev_;
+	std::shared_ptr<Node> prev_;
 	while (tmp_->next_ != nullptr && tmp_->data_ != data)
 	{
 		prev_ = tmp_;
@@ -70,13 +70,12 @@ void ForwardList<T>::remove(const T & data)
 template<typename T>
 bool ForwardList<T>::find(const T& data) const
 {
-	for (tmp_ = head_; tmp_->next_ != nullptr && tmp_->data_ != data; tmp_ = tmp_->next_)
-	{
-		if (tmp_->data_ == data)
+	std::shared_ptr<Node> head_tmp;
+	for (head_tmp = head_; head_tmp != nullptr; head_tmp = head_tmp->next_)
+		if (head_tmp->data_ == data)
 			return true;
-		else if (tmp_->next_ == nullptr)
-			return false;
-	}
+	if (head_tmp == nullptr)
+		return false;
 }
 
 template<typename T>
@@ -86,8 +85,9 @@ void ForwardList<T>::display() const
 		std::cout << "List is Empty...!!!\n";
 	else
 	{
-		for (tmp_ = head_; tmp_->next_ != nullptr; tmp_ = tmp_->next_)
-			std::cout << "[ " << tmp_->data_ << "] -----> ";
-		std::cout << "nullptr\n";
+		std::shared_ptr<Node> head_tmp;
+		for (head_tmp = head_; head_tmp != nullptr; head_tmp = head_tmp->next_)
+			std::cout << "[ " << head_tmp->data_ << " | " << head_tmp->next_ << " ] ----> ";
+		std::cout << "nullptr\n\n";
 	}
 }

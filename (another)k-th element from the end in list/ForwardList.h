@@ -13,7 +13,9 @@ public:
 	void remove(const T& data);
 	bool find(const T& data) const;
 	void display() const;
-	auto get_head() const { return getHead(); }
+	auto& get_head() const { return getHead(); }
+	auto& get_next() const { return getNext(); }
+	T& get_data() const { return getData(); }
 
 private:
 	struct Node
@@ -26,5 +28,9 @@ private:
 	std::shared_ptr<Node> tmp_;
 	std::shared_ptr<Node> tail_;
 
-	Node* getHead() const { return head_; };
+	std::shared_ptr<Node>& getHead() const { return head_; }
+	std::shared_ptr<Node>& getNext() const { return Node::next_; }
+	T& getData() const { return Node::data_; }
+
+
 };
